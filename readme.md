@@ -1,7 +1,7 @@
 
-# About Monero CCS
+# About Zcoin Crowdfunding System (ZCS)
 
-Monero CCS is a simple web system for capturing donations made to fund community projects
+Zcoin Crowdfunding System (ZCS) is a simple web system for capturing donations made to fund community projects
 
 # CCS Deployment Quickstart
 
@@ -129,7 +129,7 @@ Instead of scheduling a cron job you can run the following commands in no partic
 2. Process incoming donations  
 *Run it either on new block/tx notification or schedule it to run every minute or so*
     ```
-    php /var/www/html/ccs-back/artisan monero:notify
+    php /var/www/html/ccs-back/artisan zcoin:notify
     ```
 1. Generate static HTML files
     ```
