@@ -18,8 +18,7 @@ class CoinZcoin implements Coin
 
     public function onNotifyGetTransactions(Command $command, WalletCommon $wallet)
     {
-        $skip_txes = Deposit::whereNotNull('tx_id')->where('confirmations', '>', 10)->count();
-        return $wallet->scanIncomingTransfers($skip_txes)->each(function ($tx) {
+        return $wallet->scanIncomingTransfers()->each(function ($tx) {
             $project = Project::where('address', $tx->address)->first();
             if ($project) {
                 $tx->subaddr_index = $project->subaddr_index;
