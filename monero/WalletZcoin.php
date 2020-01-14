@@ -52,7 +52,7 @@ class WalletZcoin implements WalletCommon
     public function scanIncomingTransfers($skip_txes = 0)
     {
         return collect($this->rpc->request('listtransactions', ['', 100, $skip_txes]))->filter(function ($tx) {
-            return $tx['category'] == 'receive';
+            return isset($tx['address']) && $tx['category'] == 'receive';
         })->map(function ($tx) {
             return new Transaction(
                 $tx['txid'],
